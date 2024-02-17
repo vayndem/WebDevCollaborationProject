@@ -1,0 +1,162 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+
+// Define your schema using Prisma
+// This file will be automatically generated based on your schema definition
+
+
+// Define the User model
+model User {
+  uuid           String    @id @default(uuid()) @map(name: "uuid")
+  name           String
+  nim            Int
+  password       String
+  email          String
+  avatar         String?
+  personalNumber Int?
+  telegramId     Int?
+  createdAt      DateTime   @default(now())
+  modifiedAt     DateTime   @default(now())
+
+  
+  groups          Group[]
+  usergroup       UserGroup[]
+  log             Log[]   
+  roleuser        RoleUser[]
+  permissionUser  PermissionUser[]
+
+}
+
+model Group {
+  uuid       String    @id @default(uuid()) @map(name: "uuid")
+  name       String
+  locations  String
+
+  //one-to-many
+  users      User    @relation(fields: [notify_to], references: [uuid], onDelete: Cascade, onUpdate: Cascade)
+  notify_to  String
+  device     Device  @relation(fields: [devices], references: [uuid], onDelete: Cascade, onUpdate: Cascade)  
+  devices    String
+
+  usergroup  UserGroup[]
+}
+  
+
+model Device {
+  uuid        String   @id @default(uuid()) @map(name: "uuid")
+  name        String
+  locations   String
+  ip_address  String
+
+  groups      Group[]
+  log         Log[]  
+}
+
+model UserGroup {
+  uuid       String     @id @default(uuid()) @map(name: "uuid")
+  createdAt  DateTime  @default(now())
+  modifiedAt DateTime  @default(now())
+
+  user       User      @relation(fields: [userUuid], references: [uuid], onDelete: Cascade, onUpdate: Cascade)
+  userUuid   String
+  group      Group     @relation(fields: [groupUuid], references: [uuid], onDelete: Cascade, onUpdate: Cascade)
+  groupUuid  String
+}
+
+model Log {
+  uuid        String      @id @default(uuid()) @map(name: "uuid")
+  type        absen     // Assuming 'type' is a string field for the type of log
+  imagePath   String?     @db.VarChar(255) // Assuming 'image_path' is a varchar field
+  bbox        Json   
+  signature   String?     
+  createdAt   DateTime    @default(now())
+
+  user        User        @relation(fields: [userUuid], references: [uuid], onDelete: Cascade, onUpdate: Cascade)
+  userUuid    String
+  device      Device      @relation(fields: [deviceUuid], references: [uuid], onDelete: Cascade, onUpdate: Cascade)
+  deviceUuid  String
+}
+
+enum absen {
+  Login
+  Logout
+}
+
+model Role {
+  uuid          String    @id @default(uuid()) @map(name: "uuid")
+  name          String
+  guardName     String
+  description   String
+  createdAt     DateTime  @default(now())
+  modifiedAt    DateTime  @default(now())
+
+  roleuser      RoleUser[]
+  permisionrole PermissionRole[]
+}
+
+// Define the RoleUser model
+model RoleUser {
+  uuid         String    @id @default(uuid()) @map(name: "uuid")
+  createdAt    DateTime  @default(now())
+  modifiedAt   DateTime  @default(now())
+
+  user         User      @relation(fields: [userUuid], references: [uuid], onDelete: Cascade, onUpdate: Cascade)
+  userUuid     String
+  role         Role      @relation(fields: [roleUuid], references: [uuid], onDelete: Cascade, onUpdate: Cascade)
+  roleUuid     String
+  
+}
+
+// Define the Permission model
+model Permission {
+  uuid          String   @id @default(uuid()) @map(name: "uuid")
+  name          String
+  guardName     String
+  description   String
+  createdAt     DateTime @default(now())
+  modifiedAt    DateTime @default(now())
+
+  permisionrole   PermissionRole[]
+  permissionUser  PermissionUser[]
+}
+
+// Define the PermissionRole model
+model PermissionRole {
+  uuid              String      @id @default(uuid()) @map(name: "uuid")
+  createdAt         DateTime    @default(now())
+  modifiedAt        DateTime    @default(now())
+
+  permission        Permission  @relation(fields: [permissionUuid], references: [uuid], onDelete: Cascade, onUpdate: Cascade)
+  permissionUuid    String
+  role              Role        @relation(fields: [roleUuid], references: [uuid], onDelete: Cascade, onUpdate: Cascade)
+  roleUuid          String
+}
+
+// Define the PermissionUser model
+model PermissionUser {
+  uuid              String      @id @default(uuid()) @map(name: "uuid")
+  createdAt         DateTime    @default(now())
+  modifiedAt        DateTime    @default(now())
+
+  user              User        @relation(fields: [userUuid], references: [uuid], onDelete: Cascade, onUpdate: Cascade)
+  userUuid          String
+  permission        Permission  @relation(fields: [permissionUuid], references: [uuid], onDelete: Cascade, onUpdate: Cascade)
+  permissionUuid    String
+}
+
+
+
+
+
+
+
