@@ -1,42 +1,84 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Kelompok 1</title>
-    <link rel="stylesheet" href="style.css" />
-    <link rel="stylesheet" href="./anggota/haikal/style.css" />
-    <link rel="stylesheet" href="./anggota/adinne/style.css" />
-    <link rel="stylesheet" href="./anggota/angger/style.css" />
-    <link rel="stylesheet" href="./anggota/ayu/index.html" />
-    <link rel="stylesheet" href="./anggota/thegar/style.css" />
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kelompok 1</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="./anggota/haikal/style.css" />
+  <link rel="stylesheet" href="./anggota/adinne/style.css" />
+  <link rel="stylesheet" href="./anggota/angger/style.css" />
+  <link rel="stylesheet" href="./anggota/ayu/index.html" />
+  <link rel="stylesheet" href="./anggota/thegar/style.css" />
 
 
-  </head>
-  <body>
-      <nav class="nav">
-        <!-- <button onclick="window.location.href='anggota/haikal.html'" class="tombol_anggota">Button 1</button> -->
-        <ul>
-            <li><a href="/">Home</a></li>
-            <li><a href="/anggota/adinne/index.html">Adine</a></li>
-            <li><a href="/anggota/haikal/index.html">Haikal</a></li>
-            <li><a href="/anggota/ayu/index.html">Ayu</a></li>
-            <li><a href="/anggota/thegar/index.html">Thegar</a></li>
-            <li><a href="/anggota/angger/index.html">Angger</a></li>
-        </ul>
-        
-      </nav>
-      <section>
-    <main class="container">
-        
-      <h1>Home Page</h1>
-      </section>
+</head>
 
-      <!-- <header>Judul</header>
-        <aside>Judul Samping</aside>
-        <section>kata-kata bebas</section>
-        <footer>Tugas kelompok 1 yang dibuat untuk memenuhi tugas kelompok web 1</footer> -->
-    </main>
-  </body>
+<body>
+  <nav class="nav">
+    <!-- <button onclick="window.location.href='anggota/haikal.html'" class="tombol_anggota">Button 1</button> -->
+    <ul>
+      <li><a href="../../index.html">Home</a></li>
+      <li><a href="../adinne/index.html">Adine</a></li>
+      <li><a href="../haikal/index.html">Haikal</a></li>
+      <li><a href="../ayu/index.html">Ayu</a></li>
+      <li><a href="../thegar/index.html">Thegar</a></li>
+      <li><a href="../angger/index.html">Angger</a></li>
+    </ul>
+
+  </nav>
+  <div class="main-content">
+    <div class="foto">
+      <img class="subfoto" src="mj.jpg" alt="" width="10%">
+      <div class="desc">
+        <h1>Muhammad Thegar M J</h1>
+      </div>
+    </div>
+
+    <div class="content">
+      <div class="desccontent">
+        <h4>Deskripsi diri</h4>
+        <p>Halo pada sesi kali ini saya ingin membuat sebuah basic web yang digunakan untuk menyelasaikan tugas basic
+          web 1
+          <br> Saya adalah mahasiswa dari Universitas Muhammadiyah Surakarta, saya menyukai sesuatu hal yang berhubungan
+          dengan coding
+          <br> oleh karna itu saya disini ingin mengembangkan skill saya dengan mengikuti pembelajaran di stechoq ini
+          <br> berikut beberapa tampilan yang ingin saya buat
+        </p>
+      </div>
+      <div class="grid-container">
+        <div class="grid-item">
+          <img src="mobil.jpg" alt="Image 1">
+          <p>Mercedes-Benz (Jerman: [mɛʁˈtseːdəsˌbɛnts] atau [-dɛs-]) (juga disebut Mercy ) adalah sebuah perusahaan otomotif asal Jerman yang memproduksi berbagai macam kendaraan seperti mobil, truk, dan bus.</p>
+        </div>
+        <div class="grid-item">
+          <img src="mobil2.jpg" alt="Image 2">
+          <p>Mercedes-Benz merupakan mobil berbahan bakar bensin pertama ciptaan Karl Benz yang kemudian dipatenkan pada bulan Januari 1886. Mercedes-Benz pertama kali dipasarkan pada tahun 1901 melalui Daimler-Motoren-Gesellschaft. Merek kendaraan Mercedes-Benz sendiri dipakai pada tahun 1926.</p>
+        </div>
+      </div>
+      <div class="toggle-container">
+        <img src="moon.jpg" class="toggle-icon" onclick="setDarkmode(true)">
+        <img src="images.png" class="toggle-icon" onclick="setDarkmode(false)">
+      </div>
+    </div>
+
+  </div>
+
+  </main>
+  <script>
+    function setDarkmode(isDark) {
+      if (isDark) {
+        document.body.setAttribute('id', 'darkmode')
+      }
+      else {
+        document.body.setAttribute('id', '')
+      }
+
+    }
+  </script>
+</body>
+
+
 </html>
