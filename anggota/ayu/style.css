@@ -19,6 +19,13 @@
       grid-template-columns: 1fr 1.5fr;
       grid-template-rows: auto auto 1fr; */
   }
+  .right {
+    float: left;
+    width: 300px;
+    border: 3px solid black;
+    padding: 10px;
+    margin-right: 25px;
+  }
   .nav {
     position: fixed;
     width: 100%;
