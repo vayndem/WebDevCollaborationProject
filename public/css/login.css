@@ -1,0 +1,22 @@
+.gambar-container {
+    width: 100%; 
+    height: 300px; 
+    overflow: hidden;
+  }
+
+  .gambar-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  .cropped1 {
+    width: 100%;
+    height: 105vh;
+  
+    align-items: center;
+    justify-content: center;
+
+
+    
+ 
+}
