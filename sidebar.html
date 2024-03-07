@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        .sidebar {
+            position: fixed;
+            left: -350px;
+            top: 0;
+            display: block;
+            width: 250px;
+            height: 100%;
+            background-color: #333;
+            color: white;
+            padding: 20px;
+            transition: left 0.3s ease; 
+
+        }
+
+        .sidebar-header {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        .menu {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .menu li {
+            margin-bottom: 10px;
+            text-align: center;
+        }
+
+        .sidebar-toggle {
+            display: none;
+        }
+
+        .menu li a {
+            color: white;
+            text-decoration: none;
+        }
+
+        .menu li a:hover {
+            text-decoration: none;
+        }
+
+        .logout {
+            text-align: center;
+            position: relative;
+            /* bottom: -70vh; */
+            display: none;
+            color: white;
+            cursor: pointer;
+        }
+
+        .logout:hover {
+            background-color: orange;
+            transition: all ease-in;
+        }
+
+        .content {
+            margin-left: 250px;
+            padding: 20px;
+        }
+
+        .sidebar .menu li :hover {
+            display: block;
+            background: orange;
+            transition: all ease-in;
+        }
+
+        @media (max-width: 768px) {
+            .sidebar {
+                display: none;
+                width: 150px;
+                height: 100vh;
+                position: relative;
+                left: 0;
+            }
+
+            .sidebar-toggle:checked~.sidebar {
+                display: block;
+            }
+
+            .content {
+                margin-left: 0;
+            }
+
+            .logout {
+                position: static;
+                display: block;
+            }
+        }
+
+        .data {
+            display: none;
+            font-size: 20px;
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-weight: bold;
+            text-align: justify;
+        }
+
+        .sidebar-toggle:checked~.data {
+            display: block;
+        }
+
+
+        .sidebar-toggle-label {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            background-color: #333;
+            color: #fff;
+            padding: 10px;
+            font-size: 24px;
+            cursor: pointer;
+        }
+
+        .sidebar-toggle:checked~.sidebar {
+            left: 0;
+        }
+        .sidebar-toggle:checked~ .sidebar .menu .logout {
+        display: block;    
+        }
+
+        .image-text-container {
+            display: flex;
+            align-items: center;
+            margin-bottom: -50px;
+            margin-top: 70px;
+            /* adjust as needed */
+        }
+
+        .image-text-container:hover {
+            background: orange;
+            transition: all ease-in 0.2s;
+        }
+
+        .image {
+            width: 20px;
+            height: 20px;
+            object-fit: cover;
+            margin-right: 10px;
+        }
+
+        .text {
+            font-size: 14px;
+        }
+    </style>
+</head>
+
+<body>
+    <input type="checkbox" id="sidebar-toggle" class="sidebar-toggle">
+    <label for="sidebar-toggle" class="sidebar-toggle-label">&#9776;</label>
+    <div class="sidebar" id="sidebar">
+        
+        <input type="checkbox" id="sidebar-toggle" class="sidebar-toggle">
+        <label for="sidebar-toggle" class="sidebar-toggle-label">&#9776;</label>
+        <ul class="menu">
+            <div class="image-text-container">
+                <img src="assets/profile.png" alt="Image description" class="image">
+                <div class="text">PROFILE</div>
+              </div>
+
+              <div class="image-text-container">
+                <img src="assets/dashboard.png" alt="Image description" class="image">
+                <div class="text">DASHBOARD</div>
+              </div>
+
+              <div class="image-text-container">
+                <img src="assets/house.png" alt="Image description" class="image">
+                <div class="text">HOME</div>
+              </div>
+
+              <div class="image-text-container">
+                <img src="assets/tempat_pembelian.png" alt="Image description" class="image">
+                <div class="text">TEMPAT PEMBELIAN</div>
+              </div>
+
+              <div class="image-text-container">
+                <img src="assets/layanan service.png" alt="Image description" class="image">
+                <div class="text">LAYANAN SERVICES</div>
+              </div>
+
+              <div class="image-text-container">
+                <img src="assets/product.png" alt="Image description" class="image">
+                <div class="text">PRODUCT</div>
+              </div>
+              
+              <div class="image-text-container">
+                <img src="assets/power.png" alt="Image description" class="image">
+                <div class="logout" id="logout">Log Out</div>
+                <script>
+                    // Function to handle log out
+                    function logOut() {
+                        window.location.href = "index.html";
+                    }
+            
+                    // Get the Log Out button element
+                    let logoutButton = document.getElementById("logout");
+            
+                    // Add click event listener to Log Out button
+                    logoutButton.addEventListener("click", function (event) {
+                        event.preventDefault(); // Prevent default action of link click
+                        logOut(); // Call the logOut function when clicked
+                    });
+            
+                </script>
+                
+              </div>
+            
+        </ul>
+</body>
+
+</html>
