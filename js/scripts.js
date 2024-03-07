@@ -25,7 +25,7 @@ login.addEventListener("submit", (e) => {
   e.preventDefault();
   //   validasi login
   if (username.value === "admin" && password.value === "admin") {
-    window.location.href = "../../index.html";
+    window.location.href = "../index.html";
     alertError.style.display = "none";
   } else {
     alertError.style.display = "block";

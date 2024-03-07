@@ -1,35 +1,36 @@
-*{
+* {
   border: 0;
   padding: 0;
   margin: 0;
   box-sizing: border-box;
 }
 .gambar-container {
-    width: 100%; 
-    height: 300px; 
-    overflow: hidden;
-  }
+  width: 100%;
+  height: 300px;
+  overflow: hidden;
+}
 
-  .gambar-container img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: center;
-  }
-  .cropped1 {
-    width: 100%;
-    height: 100%;
-    /* height: 105vh; */
-    position: absolute;
-    top: 0;
-    left: 0;
-    bottom: 0;
-    right: 0;
-  
-    align-items: center;
-    justify-content: center;
+.gambar-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+.cropped1 {
+  width: 100%;
+  height: 100%;
+  /* height: 105vh; */
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
 
+  align-items: center;
+  justify-content: center;
+}
 
-    
- 
+.jumbotron {
+  background-image: url(../assets/warehouse-background-pzkv8y7kvdmmnyej.jpg);
+  background-size: cover;
 }
