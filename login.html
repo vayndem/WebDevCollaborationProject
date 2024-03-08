@@ -8,17 +8,35 @@
     <link rel="icon" href="assets/favicon.ico" />
 
     <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="css/style.css" />
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+    />
   </head>
 
   <body>
     <div class="row" style="display: flex; height: 100vh; width: 100vw">
-      <div class="col-xl-6 col-md-12 d-flex justify-content-center align-items-center position-relative" style="max-width: 100%; max-height: 100%; padding-bottom: 50px">
-        <img id="gambar" class="cropped1 img-fluid" src="assets/electricity-1018864_1280.webp" alt="Contoh Gambar" />
-        <h1 class="text-center position-absolute top-50 start-50 translate-middle" style="color: white;">PT. Elektro
-                Jaya</h1>
+      <div
+        class="col-xl-6 col-md-12 d-flex justify-content-center align-items-center position-relative"
+        style="max-width: 100%; max-height: 100%; padding-bottom: 50px"
+      >
+        <img
+          id="gambar"
+          class="cropped1 img-fluid"
+          src="assets/electricity-1018864_1280.webp"
+          alt="Contoh Gambar"
+        />
+        <h1
+          class="text-center position-absolute top-50 start-50 translate-middle"
+          style="color: white"
+        >
+          PT. Elektro Jaya
+        </h1>
       </div>
 
       <div class="col-xl-6 align-self-start p-5" id="content">
@@ -26,56 +44,115 @@
         <div class="sr-only"></div>
 
         <form id="login">
-          <div class="alert alert-danger" role="alert" id="alert-error">Invalid login, please try again</div>
+          <div class="alert alert-danger" role="alert" id="alert-error">
+            Invalid login, please try again
+          </div>
           <!-- diberikan akan ke mana code ini? -->
           <div class="heading mb-3">
-            <div class="d-flex justify-content-center align-items-center gap-1 mb-3">
+            <div
+              class="d-flex justify-content-center align-items-center gap-1 mb-3"
+            >
               <figure class="d-flex align-items-center gap-2">
-                <img id="gambar" width="30" height="30" class="text-light p-2 bg-primary rounded" src="assets/favicon.ico" alt="Contoh Gambar" />
-                <figcaption class="fs-6 fw-semibold text-center">PT Elektro Jaya</figcaption>
+                <img
+                  id="gambar"
+                  width="30"
+                  height="30"
+                  class="text-light p-2 bg-primary rounded"
+                  src="assets/favicon.ico"
+                  alt="Contoh Gambar"
+                />
+                <figcaption class="fs-6 fw-semibold text-center">
+                  PT Elektro Jaya
+                </figcaption>
               </figure>
             </div>
             <h1 class="fs-2 text-center">Sign In</h1>
           </div>
           <div class="form-group mb-2">
             <label for="username" class="sr-only mb-1">Name</label>
-            <input type="text" name="username" id="username" class="form-control" placeholder="Name" autocomplete="username" required />
+            <input
+              type="text"
+              name="username"
+              id="username"
+              class="form-control"
+              placeholder="Name"
+              autocomplete="username"
+              required
+            />
             <!-- DOM input ini -->
           </div>
           <div class="form-group mb-3 position-relative">
             <label for="password" class="sr-only mb-1">Password</label>
-            <input type="password" name="password" id="password" class="form-control" placeholder="Password" autocomplete="current-password" required />
-            <button type="button" class="position-absolute" style="top: 28px; right: 15px; background-color: transparent" id="show-password">
+            <input
+              type="password"
+              name="password"
+              id="password"
+              class="form-control"
+              placeholder="Password"
+              autocomplete="current-password"
+              required
+            />
+            <button
+              type="button"
+              class="position-absolute"
+              style="top: 28px; right: 15px; background-color: transparent"
+              id="show-password"
+            >
               <i class="bi bi-eye fs-4"></i>
             </button>
           </div>
           <div class="form-group custom-control custom-checkbox">
-            <input class="custom-control-input" type="checkbox" name="rememberusername1" id="rememberusername1" value="1" required />
-            <label class="custom-control-label" style="color: #003666" for="rememberusername1">Remember username</label>
+            <input
+              class="custom-control-input"
+              type="checkbox"
+              name="rememberusername1"
+              id="rememberusername1"
+              value="1"
+              required
+            />
+            <label
+              class="custom-control-label"
+              style="color: #003666"
+              for="rememberusername1"
+              >Remember username</label
+            >
           </div>
 
-          <button type="submit" class="btn btn-log btn-block btn-thm2 adhim mt-3" style="background-color: #003666; color: #fff; width: 100%" id="loginbtn">Log in</button>
+          <button
+            type="submit"
+            class="btn btn-log btn-block btn-thm2 adhim mt-3"
+            style="background-color: #003666; color: #fff; width: 100%"
+            id="loginbtn"
+          >
+            Log in
+          </button>
         </form>
 
-        <hr class="my-5"> 
+        <hr class="my-5" />
 
-         <div class="ccn_first-time">
+        <div class="ccn_first-time">
+          <div class="">
+            <div class="">
+              <div class="">
                 <div class="">
-                    <div class="">
-                        <div class="">
-                            <div class="">
-                                <h4>Belum Punya Akun?</h4>
-                            </div>
-                            <div>
-
-                                <form class="mt-3" action="register.html" method="get" id="signup">
-                                    <button type="submit" class="btn btn-secondary">Create new account</button>
-                                </form>
-                            </div>
-                        </div>
-                    </div>
+                  <h4>Belum Punya Akun?</h4>
                 </div>
+                <div>
+                  <form
+                    class="mt-3"
+                    action="register.html"
+                    method="get"
+                    id="signup"
+                  >
+                    <button type="submit" class="btn btn-secondary">
+                      Create new account
+                    </button>
+                  </form>
+                </div>
+              </div>
             </div>
+          </div>
+        </div>
       </div>
     </div>
 
@@ -86,5 +163,5 @@
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.min.js"></script>
   </body>
-  <script src="js/scripts.js"></script>
+  <script src="js/backup-sidebar.js"></script>
 </html>
