@@ -30,11 +30,20 @@ app.get("/", (req, res) => {
 });
 
 // Start route PUT
-let data = {
-  id: 1,
-  name: "Johan Krisbima Abi",
-  email: "johankrisbima77@gmail.com",
-};
+let data = [
+  {
+    id: 1,
+    name: "Johan Krisbima Abi",
+    email: "johankrisbima77@gmail.com",
+  },
+  {
+    id: 2,
+    name: "haikal abror" ,
+    email: "abrorhaikal@gmail.com"
+
+  }
+];
+
 
 app.put("/update", (req, res) => {
   try {
@@ -69,6 +78,32 @@ app.put("/update", (req, res) => {
   }
 });
 // End Route PUT
+
+
+//GET by ID
+app.get("/:id", (req, res) => {
+  try {
+    const id = parseInt(req.params.id);
+    const foundData = data.find((item) => item.id === id);
+
+    if (!foundData) {
+      throw new Error("data tidak valid");
+    }
+    res.status(200).json({
+      status: "success",
+      message: "Data ditemukan",
+      data: foundData,
+    });
+  } catch (error) {
+    res.status(404).json({
+      status: "not found",
+      message: error.message,
+    });
+  }
+});
+
+
+
 
 app.listen(port, () => {
   console.log(`Listening port ${port}`);
