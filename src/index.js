@@ -45,6 +45,7 @@ app.put("/update", (req, res) => {
       data.email = email;
 
       // Menyusun respons
+      // res.send("Berhasil");
       res.status(200).json({
         status: "success",
         message: "Data berhasil diperbarui",
