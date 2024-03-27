@@ -29,7 +29,6 @@ app.get("/", (req, res) => {
   }
 });
 
-
 // Start route PUT
 let data = [
   {
@@ -39,28 +38,25 @@ let data = [
   },
   {
     id: 2,
-    name: "haikal abror" ,
-    email: "abrorhaikal@gmail.com"
-
-  }
+    name: "haikal abror",
+    email: "abrorhaikal@gmail.com",
+  },
 ];
-
 
 app.put("/update", (req, res) => {
   try {
     const { id, name, email } = req.body;
 
-    if (id === data.id) {
+    if (id === data[0].id) {
       data.name = name;
       data.email = email;
 
       // Menyusun respons
-      // res.send("Berhasil");
       res.status(200).json({
         status: "success",
         message: "Data berhasil diperbarui",
         data: {
-          id: 1,
+          id: id,
           name: name,
           email: email,
         },
@@ -80,7 +76,6 @@ app.put("/update", (req, res) => {
   }
 });
 // End Route PUT
-
 
 //GET by ID
 app.get("/:id", (req, res) => {
@@ -106,37 +101,31 @@ app.get("/:id", (req, res) => {
 
 //POST
 /*untuk membuat artikel baru*/
-app.post('/', async function(req, res, next) {
+app.post("/", async function (req, res, next) {
   try {
-
     //menangkap form data yang dikirim melalu request body
-    const {
-      title,
-      content,
-      tags,
-      published
-    } = req.body;
+    const { title, content, tags, published } = req.body;
 
     //membuat data baru di db menggunakan method create
     const post = await models.posts.create({
       title,
       content,
       tags,
-      published
+      published,
     });
 
     //jika data berhasil dibuat, kembalikan response dengan kode 201 dan status OK
     if (post) {
       res.status(200).json({
-        'status': 'Success',
-        'messages': 'Post berhasil ditambahkan',
-        'data': post
+        status: "Success",
+        messages: "Post berhasil ditambahkan",
+        data: post,
       });
     }
-  } catch(error) {
+  } catch (error) {
     res.status(404).json({
-      'status': 'not found',
-      'messages': error.message
+      status: "not found",
+      messages: error.message,
     });
   }
 });
