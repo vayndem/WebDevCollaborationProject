@@ -29,6 +29,7 @@ app.get("/", (req, res) => {
   }
 });
 
+
 // Start route PUT
 let data = [
   {
@@ -102,8 +103,42 @@ app.get("/:id", (req, res) => {
   }
 });
 
+//POST
+/*untuk membuat artikel baru*/
+app.post('/', async function(req, res, next) {
+  try {
 
+    //menangkap form data yang dikirim melalu request body
+    const {
+      title,
+      content,
+      tags,
+      published
+    } = req.body;
 
+    //membuat data baru di db menggunakan method create
+    const post = await models.posts.create({
+      title,
+      content,
+      tags,
+      published
+    });
+
+    //jika data berhasil dibuat, kembalikan response dengan kode 201 dan status OK
+    if (post) {
+      res.status(200).json({
+        'status': 'Success',
+        'messages': 'Post berhasil ditambahkan',
+        'data': post
+      });
+    }
+  } catch(error) {
+    res.status(404).json({
+      'status': 'not found',
+      'messages': error.message
+    });
+  }
+});
 
 app.listen(port, () => {
   console.log(`Listening port ${port}`);
