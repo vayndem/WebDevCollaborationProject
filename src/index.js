@@ -129,6 +129,33 @@ app.post("/", async function (req, res, next) {
     });
   }
 });
+app.delete("/delete", (req, res) => {
+  try {
+    const { id } = req.body;
+
+    if (id === data[0].id || id === data[1].id) {
+      // Menyusun respons
+      res.status(200).json({
+        status: "success",
+        message: "Data berhasil dihapus",
+        data: {
+          id: id,
+        },
+      });
+    } else {
+      res.status(404).json({
+        status: "error",
+        message: "Data dengan ID yang diberikan tidak ditemukan",
+      });
+    }
+  } catch (error) {
+    // Jika terjadi kesalahan, kirim respons error server
+    res.status(500).json({
+      status: "error",
+      message: error.message,
+    });
+  }
+});
 
 app.listen(port, () => {
   console.log(`Listening port ${port}`);
