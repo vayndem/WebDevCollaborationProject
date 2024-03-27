@@ -48,17 +48,17 @@ app.put("/update", (req, res) => {
     const { id, name, email } = req.body;
 
     if (id === data[0].id) {
-      data.name = name;
-      data.email = email;
+      const nama = (data[0].name = name);
+      const alamatEmail = (data[0].email = email);
 
       // Menyusun respons
       res.status(200).json({
         status: "success",
         message: "Data berhasil diperbarui",
         data: {
-          id: id,
-          name: name,
-          email: email,
+          id: data[0].id,
+          name: nama,
+          email: alamatEmail,
         },
       });
     } else {
