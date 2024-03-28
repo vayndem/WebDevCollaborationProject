@@ -129,6 +129,8 @@ app.post("/", async function (req, res, next) {
     });
   }
 });
+
+//DELETE
 app.delete("/delete", (req, res) => {
   try {
     const { id } = req.body;
